@@ -144,8 +144,8 @@ its invocation becomes more convenient.
 
 ```bash
 gcloud config set project <walkthrough-project-id/>
-gcloud config set run/region europe-north1
-gcloud config set artifacts/location europe-north1
+gcloud config set run/region us-central1
+gcloud config set artifacts/location us-central1
 ```
 
 Note that our code is not yet built or containerized, but Cloud Run requires
@@ -277,11 +277,11 @@ throttled throughout the life cycle of a container instance.
 ![Cloud Run container life cycle and CPU throttling](https://raw.githubusercontent.com/NucleusEngineering/serverless/main/.images/lifecycle.png)
 
 Take a look at the deployment wizard for your service in the
-[Cloud Run section in the Google Cloud Console](https://console.cloud.google.com/run/deploy/europe-north1/jokes)
+[Cloud Run section in the Google Cloud Console](https://console.cloud.google.com/run/deploy/us-central1/jokes)
 and make sure **Startup CPU boost** is enabled.
 
 While you are in the Google Cloud Console, have a look at
-[the metrics section of your service](https://console.cloud.google.com/run/detail/europe-north1/jokes/metrics)
+[the metrics section of your service](https://console.cloud.google.com/run/detail/us-central1/jokes/metrics)
 and explore how the previously executed load test affected scaling.
 
 ## Summary
@@ -352,8 +352,8 @@ In order to get started let's set up some configuration:
 
 ```bash
 gcloud config set project <walkthrough-project-id/>
-gcloud config set run/region europe-north1
-gcloud config set artifacts/location europe-north1
+gcloud config set run/region us-central1
+gcloud config set artifacts/location us-central1
 ```
 
 We are building some container images in this tutorial, so let's set up a
@@ -810,8 +810,8 @@ Let's configure `gcloud` for the project and default regions:
 
 ```bash
 gcloud config set project <walkthrough-project-id/>
-gcloud config set run/region europe-north1
-gcloud config set artifacts/location europe-north1
+gcloud config set run/region us-central1
+gcloud config set artifacts/location us-central1
 ```
 
 Okay, all set!
@@ -1246,8 +1246,8 @@ Before continuing, make sure `gcloud` configuration is set to our preferences:
 
 ```bash
 gcloud config set project <walkthrough-project-id/>
-gcloud config set run/region europe-north1
-gcloud config set artifacts/location europe-north1
+gcloud config set run/region us-central1
+gcloud config set artifacts/location us-central1
 ```
 
 Okay! Good to go.
@@ -1277,7 +1277,7 @@ version that uses the static tortune library. Let's also tag this revision as
 ```bash
 gcloud run deploy jokes \
     --tag good \
-    --image europe-north1-docker.pkg.dev/<walkthrough-project-id/>/my-repo/dockermultistage
+    --image us-central1-docker.pkg.dev/<walkthrough-project-id/>/my-repo/dockermultistage
 ```
 
 Good! The revision is tagged and gets a separate URL that looks something like
@@ -1457,8 +1457,8 @@ Let's also make sure our gcloud configuration is present by running:
 
 ```bash
 gcloud config set project <walkthrough-project-id/>
-gcloud config set run/region europe-north1
-gcloud config set artifacts/location europe-north1
+gcloud config set run/region us-central1
+gcloud config set artifacts/location us-central1
 ```
 
 ## Precisely loading software dependencies
@@ -1840,14 +1840,14 @@ Once the build completes take a look at the
 [top build in Cloud Build](https://console.cloud.google.com/cloud-build/builds;region=global).
 Click into the build, select the build summary and view the _Security Insights_
 of the build artifact
-`europe-north1-docker.pkg.dev/<walkthrough-project-id />/my-repo/dockerinsecure:latest`.
+`us-central1-docker.pkg.dev/<walkthrough-project-id />/my-repo/dockerinsecure:latest`.
 
 You'll immediately see many vulnerabilities detected with actionable fixes
 listed as well.
 
 Go to [Artifact Registry](https://console.cloud.google.com/artifacts) and find
 the image
-`europe-north1-docker.pkg.dev/<walkthrough-project-id />/my-repo/dockerinsecure@sha256:8b3934e38ea64021c4323060150cbc877511fd8d52c81165d9f8ea1e189b0a06`.
+`us-central1-docker.pkg.dev/<walkthrough-project-id />/my-repo/dockerinsecure@sha256:8b3934e38ea64021c4323060150cbc877511fd8d52c81165d9f8ea1e189b0a06`.
 
 First, let's take a closer look at all the dependencies used by our image. The
 complete list of dependencies is the most crucial component of our artifact's
